@@ -11,6 +11,30 @@ function bibdk_navfors_ting_client_webservice() {
   return $ret;
 }
 
+function bibdk_navfors_get_library_list ($serviceName) {
+  $xml = bibdk_navfors_request($serviceName);
+  return bibdk_navfors_parse_response($xml);  
+}
+
+function bibdk_navfors_parse_response($xml){
+  $dom = new DomDocument();
+    if (!@$dom->loadXML($xml)) {
+      if ( BibdkClient::$enable_logging ) {
+        watchdog('bibdk_provider', t('BIBDK client could not load response: %xml', array('%xml' => var_export($xml, TRUE))), array(), WATCHDOG_ERROR);
+      }
+      return FALSE;
+    }
+    $xpath = new DomXPATH($dom);
+    
+    $query = '//customer';
+    $nodelist = $xpath->query($query);
+    foreach ($nodelist as $node) {
+      $ret[] = $node->nodeValue;
+    }
+    
+    return $ret;
+}
+
 /**
  * do a request
  * */
