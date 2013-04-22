@@ -1,9 +1,10 @@
-name = Bibliotek.dk navision_tab webservice request
-description = check library access to ressources
+name = Bibliotek.dk - Navision_tab webservice request
+description = Check library access to ressources
 core = 7.x
-version = 7.x-0.1
+version = 7.x-0.2
 package = Bibliotek.dk
+
 files[] = bibdk_navfors.module
 files[] = bibdk_navfors.request.inc
-;files[] = test/bibdk_navfors.test
+
 dependencies[] = ting_client

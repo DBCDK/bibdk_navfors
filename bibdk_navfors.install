@@ -26,6 +26,3 @@ function bibdk_navfors_update_7002() {
     // do nothing table probably already exists
   }
 }
-
-
-?>
