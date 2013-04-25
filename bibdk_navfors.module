@@ -7,13 +7,13 @@ function bibdk_navfors_ting_client_webservice() {
   $ret = array();
   $ret['navfors']['class'] = 'bibdk_navfors';
   $ret['navfors']['url'] = 'bibdk_navfors_url';
-  
+
   return $ret;
 }
 
 function bibdk_navfors_get_library_list ($serviceName) {
   $xml = bibdk_navfors_request($serviceName);
-  return bibdk_navfors_parse_response($xml);  
+  return bibdk_navfors_parse_response($xml);
 }
 
 function bibdk_navfors_parse_response($xml){
@@ -25,13 +25,13 @@ function bibdk_navfors_parse_response($xml){
       return FALSE;
     }
     $xpath = new DomXPATH($dom);
-    
+
     $query = '//customer';
     $nodelist = $xpath->query($query);
     foreach ($nodelist as $node) {
       $ret[] = $node->nodeValue;
     }
-    
+
     return $ret;
 }
 
@@ -55,7 +55,7 @@ function bibdk_navfors_form_ting_client_admin_webservices_settings_alter(&$form,
   $form['ting']['bibdk_navfors_url'] = array(
     '#type' => 'textfield',
     '#title' => t('navfors URL'),
-    '#description' => t('URL to navfors e.g. http://guesstimate.dbc.dk/~pjo/webservices/navfors/trunk/'),
+    '#description' => t('URL to navfors e.g. http://guesstimate.dbc.dk/~pjo/webservices/navfors/trunk/server.php'),
     '#required' => TRUE,
     '#default_value' => variable_get('bibdk_navfors_url', FALSE),
   );
