@@ -41,7 +41,7 @@ function bibdk_navfors_parse_response($xml){
 function bibdk_navfors_request($serviceName, $outputType = 'xml') {
   $client = new ting_client_class();
   // this is the real request
-  $response = $client->do_navfors(array('serviceName' => $serviceName,'outputType' => $outputType,));
+  $response = $client->do_request('navfors', array('serviceName' => $serviceName,'outputType' => $outputType,));
   return $response;
 }
 
