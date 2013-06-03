@@ -1,7 +1,7 @@
 name = Bibliotek.dk - Navision_tab webservice request
 description = Check library access to ressources
 core = 7.x
-version = 7.x-0.3
+version = 7.x-0.4
 package = Bibliotek.dk
 
 files[] = bibdk_navfors.module
