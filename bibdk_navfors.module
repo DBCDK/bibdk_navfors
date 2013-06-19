@@ -7,7 +7,7 @@ function bibdk_navfors_ting_client_webservice() {
   $ret = array();
   $ret['navfors']['class'] = 'bibdk_navfors';
   $ret['navfors']['url'] = 'bibdk_navfors_url';
-
+  $ret['navfors']['xsdNamespace'] = array(0=>'http://oss.dbc.dk/ns/forsrights');
   return $ret;
 }
 
